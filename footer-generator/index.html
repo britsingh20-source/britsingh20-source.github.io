@@ -5,125 +5,66 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Coimbatore Veedu Footer Generator</title>
 <style>
-  :root{--navy:#071b37;--navy2:#0e2c55;--gold:#f5c449;--gold2:#ffd96d;--red:#d71920;--bg:#07101f;--card:#0c1729;--text:#fff;--muted:#9fb0c9;}
-  *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#050b15,#0a1425);color:var(--text)}
-  .wrap{max-width:980px;margin:auto;padding:18px}.brand{font-weight:900;font-size:26px;letter-spacing:.4px}.sub{color:var(--muted);margin-top:6px;line-height:1.45}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.card{background:rgba(12,23,41,.95);border:1px solid #23344e;border-radius:18px;padding:16px;box-shadow:0 16px 40px rgba(0,0,0,.28)}
-  label{font-size:12px;font-weight:800;color:#cbd6e8;display:block;margin:0 0 7px;text-transform:uppercase;letter-spacing:.8px} select,input{width:100%;background:#091426;color:#fff;border:1px solid #32445f;border-radius:12px;padding:13px;font-size:16px;outline:none} input[type=file]{padding:10px;font-size:14px}
-  .row{display:flex;gap:8px;flex-wrap:wrap}.pill{border:1px solid #41536f;background:#0a172b;color:#dfe8f7;border-radius:999px;padding:10px 14px;font-weight:800;cursor:pointer}.pill.active{background:linear-gradient(180deg,#ffd76a,#e6ae2b);color:#091426;border-color:#ffd76a}
-  .switch{display:flex;align-items:center;gap:10px;background:#091426;border:1px solid #32445f;border-radius:12px;padding:12px}.dot{width:44px;height:24px;border-radius:999px;background:#1d7f4f;position:relative;flex:0 0 auto}.dot:after{content:"";width:18px;height:18px;border-radius:50%;background:#fff;position:absolute;top:3px;right:3px}.locked{font-size:12px;color:#8ea2bd}
-  .full{grid-column:1/-1}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border:0;border-radius:13px;padding:14px 18px;font-weight:900;font-size:15px;cursor:pointer}.primary{background:linear-gradient(180deg,#ffd96d,#eab635);color:#07152c}.secondary{background:#10223e;color:white;border:1px solid #365077}.preview{margin-top:18px;background:#04070d;border:1px solid #263650;border-radius:18px;padding:12px;overflow:auto}.preview canvas{display:block;width:100%;min-width:760px;height:auto;border-radius:12px}
-  .hint{font-size:12px;color:#91a4bf;margin-top:8px}.small{font-size:12px;color:#a8b9cf}
-  @media(max-width:720px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.brand{font-size:22px}.wrap{padding:12px}.card{padding:14px}.preview{margin-left:-4px;margin-right:-4px}}
+:root{--navy:#071b37;--gold:#f7c84d;--gold2:#ffe88a;--red:#df141c;--bg:#07101f;--card:#0d1a2d;--text:#fff;--muted:#9fb0c9}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#050b15,#0b1628);color:#fff}.wrap{max-width:1020px;margin:auto;padding:18px}.brand{font-size:27px;font-weight:900}.sub{margin-top:7px;color:var(--muted);line-height:1.45}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.card{background:rgba(13,26,45,.96);border:1px solid #253956;border-radius:18px;padding:16px;box-shadow:0 18px 40px rgba(0,0,0,.32)}label{display:block;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.8px;color:#cbd6e8;margin-bottom:7px}select,input{width:100%;background:#091426;color:#fff;border:1px solid #32445f;border-radius:12px;padding:13px;font-size:16px;outline:none}.row{display:flex;gap:8px;flex-wrap:wrap}.pill{border:1px solid #41536f;background:#0a172b;color:#dfe8f7;border-radius:999px;padding:10px 14px;font-weight:900;cursor:pointer}.pill.active{background:linear-gradient(180deg,#ffe98a,#dca21c);color:#091426;border-color:#ffe27a;box-shadow:0 4px 14px rgba(236,180,44,.35)}.switch{display:flex;align-items:center;gap:10px;background:#091426;border:1px solid #32445f;border-radius:12px;padding:12px}.dot{width:44px;height:24px;border-radius:999px;background:#1d7f4f;position:relative}.dot:after{content:"";width:18px;height:18px;border-radius:50%;background:#fff;position:absolute;top:3px;right:3px}.full{grid-column:1/-1}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border:0;border-radius:13px;padding:14px 18px;font-weight:900;font-size:15px;cursor:pointer}.primary{background:linear-gradient(180deg,#ffe98a,#dca21c);color:#07152c}.secondary{background:#10223e;color:#fff;border:1px solid #365077}.preview{margin-top:18px;background:#03070d;border:1px solid #263650;border-radius:18px;padding:12px;overflow:auto}.preview canvas{display:block;width:100%;min-width:760px;height:auto}.hint,.small{font-size:12px;color:#91a4bf;margin-top:8px}@media(max-width:720px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.wrap{padding:12px}.brand{font-size:22px}.card{padding:14px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="brand">Coimbatore Veedu — Property Footer Generator</div>
-  <div class="sub">Select the property details. The layout, colours and “AI CREATED VISUALS” disclaimer stay fixed. Export is a transparent PNG.</div>
-
-  <div class="grid">
-    <div class="card">
-      <label>Area</label>
-      <select id="area">
-        <option>Shantimedu</option><option>Kalapatti</option><option>Vadavalli</option><option>Saravanampatti</option><option>Sulur</option><option>Karamadai</option><option>Kovilpalayam</option><option>Thudiyalur</option><option>Idigarai</option><option>Malumichampatti</option><option>Periyanaickenpalayam</option><option>Annur</option><option>Mettupalayam Road</option><option>Somayampalayam</option><option>Bommanampalayam</option><option>Pannimadai</option><option>Veerappandi</option><option>Pattanam</option><option>Papampatti Pirivu</option><option>Nadupalayam</option><option>Other</option>
-      </select>
-      <input id="otherArea" style="display:none;margin-top:8px" placeholder="Enter new area once" />
-    </div>
-
-    <div class="card">
-      <label>Property Type</label>
-      <div class="row" id="typePills"><button class="pill active" data-v="Villa">Villa</button><button class="pill" data-v="Plot">Plot</button><button class="pill" data-v="House">House</button><button class="pill" data-v="Apartment">Apartment</button></div>
-    </div>
-
-    <div class="card">
-      <label>BHK</label>
-      <div class="row" id="bhkPills"><button class="pill" data-v="1BHK">1BHK</button><button class="pill" data-v="2BHK">2BHK</button><button class="pill active" data-v="3BHK">3BHK</button><button class="pill" data-v="4BHK">4BHK</button><button class="pill" data-v="">N/A</button></div>
-    </div>
-
-    <div class="card">
-      <label>Price</label>
-      <input id="price" value="₹54 LAKH ONLY" placeholder="Example: ₹54 LAKH ONLY" />
-      <div class="hint">Type only the price. The red price panel is automatic.</div>
-    </div>
-
-    <div class="card">
-      <label>Highlight 1</label>
-      <select id="h1"><option>SPACIOUS VILLA</option><option>GATED COMMUNITY</option><option>READY TO MOVE</option><option>DTCP APPROVED</option><option>MAIN ROAD PROJECT</option><option>PREMIUM LOCATION</option><option>CORNER SITE</option><option>BANK LOAN AVAILABLE</option></select>
-    </div>
-
-    <div class="card">
-      <label>Highlight 2</label>
-      <select id="h2"><option>ONROAD PROJECT</option><option>NEAR AIRPORT</option><option>READY TO MOVE</option><option>DTCP APPROVED</option><option>GATED COMMUNITY</option><option>MAIN ROAD PROJECT</option><option>NEAR SCHOOL</option><option>NEAR IT PARK</option></select>
-    </div>
-
-    <div class="card">
-      <label>Property / Villa Visual (optional)</label>
-      <input id="photo" type="file" accept="image/*" />
-      <div class="hint">Upload the property image or AI villa visual. It will appear on the right side of the footer.</div>
-    </div>
-
-    <div class="card">
-      <label>AI Disclaimer</label>
-      <div class="switch"><div class="dot"></div><div><b>AI CREATED VISUALS</b><div class="locked">Always ON • fixed smaller size • fixed position</div></div></div>
-    </div>
-
-    <div class="card full">
-      <div class="actions"><button class="btn primary" id="generate">Generate / Refresh Preview</button><button class="btn secondary" id="download">Download Transparent PNG</button></div>
-      <div class="small" style="margin-top:10px">Master size: 2048 × 640 px. AI disclaimer is fixed around x 24%, y 16% and intentionally secondary to location/BHK/price.</div>
-    </div>
-  </div>
-
-  <div class="preview"><canvas id="c" width="2048" height="640"></canvas></div>
+<div class="brand">Coimbatore Veedu — Premium Property Footer Generator</div>
+<div class="sub">Select the property details. The premium glossy navy–gold–red design, bevels, shadows, highlights and the small “AI CREATED VISUALS” disclaimer stay standardized.</div>
+<div class="grid">
+<div class="card"><label>Area</label><select id="area"><option>Shantimedu</option><option>Kalapatti</option><option>Vadavalli</option><option>Saravanampatti</option><option>Sulur</option><option>Karamadai</option><option>Kovilpalayam</option><option>Thudiyalur</option><option>Idigarai</option><option>Malumichampatti</option><option>Periyanaickenpalayam</option><option>Annur</option><option>Mettupalayam Road</option><option>Somayampalayam</option><option>Bommanampalayam</option><option>Pannimadai</option><option>Veerappandi</option><option>Pattanam</option><option>Papampatti Pirivu</option><option>Nadupalayam</option><option>Other</option></select><input id="otherArea" style="display:none;margin-top:8px" placeholder="Enter new area" /></div>
+<div class="card"><label>Property Type</label><div class="row" id="typePills"><button class="pill active" data-v="Villa">Villa</button><button class="pill" data-v="Plot">Plot</button><button class="pill" data-v="House">House</button><button class="pill" data-v="Apartment">Apartment</button></div></div>
+<div class="card"><label>BHK</label><div class="row" id="bhkPills"><button class="pill" data-v="1BHK">1BHK</button><button class="pill" data-v="2BHK">2BHK</button><button class="pill active" data-v="3BHK">3BHK</button><button class="pill" data-v="4BHK">4BHK</button><button class="pill" data-v="">N/A</button></div></div>
+<div class="card"><label>Price</label><input id="price" value="₹54 LAKH ONLY" placeholder="Example: ₹54 LAKH ONLY" /><div class="hint">The “JUST” badge and glossy red price card are automatic.</div></div>
+<div class="card"><label>Highlight 1</label><select id="h1"><option>SPACIOUS VILLA</option><option>GATED COMMUNITY</option><option>READY TO MOVE</option><option>DTCP APPROVED</option><option>MAIN ROAD PROJECT</option><option>PREMIUM LOCATION</option><option>CORNER SITE</option><option>BANK LOAN AVAILABLE</option></select></div>
+<div class="card"><label>Highlight 2</label><select id="h2"><option>ONROAD PROJECT</option><option>NEAR AIRPORT</option><option>READY TO MOVE</option><option>DTCP APPROVED</option><option>GATED COMMUNITY</option><option>MAIN ROAD PROJECT</option><option>NEAR SCHOOL</option><option>NEAR IT PARK</option></select></div>
+<div class="card"><label>Property / Villa Visual</label><input id="photo" type="file" accept="image/*" /><div class="hint">Upload the actual property image or approved AI villa visual. If left blank, a premium stylized villa placeholder is drawn.</div></div>
+<div class="card"><label>AI Disclaimer</label><div class="switch"><div class="dot"></div><div><b>AI CREATED VISUALS</b><div class="small">Always ON • small • inside visual area</div></div></div></div>
+<div class="card full"><div class="actions"><button class="btn primary" id="generate">Generate / Refresh Preview</button><button class="btn secondary" id="download">Download Transparent PNG</button></div><div class="small">Master size: 2048 × 640 px. Transparent PNG export. Premium effects are generated directly in the browser.</div></div>
+</div>
+<div class="preview"><canvas id="c" width="2048" height="640"></canvas></div>
 </div>
 <script>
-const c=document.getElementById('c'),ctx=c.getContext('2d');let pType='Villa',bhk='3BHK',photoImg=null;
-const $=id=>document.getElementById(id);
-$('area').onchange=()=>{$('otherArea').style.display=$('area').value==='Other'?'block':'none';draw()};
-['area','otherArea','price','h1','h2'].forEach(id=>$(id).addEventListener('input',draw));
-function pills(root, setter){document.querySelectorAll('#'+root+' .pill').forEach(b=>b.onclick=()=>{document.querySelectorAll('#'+root+' .pill').forEach(x=>x.classList.remove('active'));b.classList.add('active');setter(b.dataset.v);draw()})}
-pills('typePills',v=>pType=v);pills('bhkPills',v=>bhk=v);
-$('photo').onchange=e=>{const f=e.target.files[0];if(!f){photoImg=null;draw();return}const im=new Image();im.onload=()=>{photoImg=im;draw()};im.src=URL.createObjectURL(f)};
-$('generate').onclick=draw;
-$('download').onclick=()=>{draw();const a=document.createElement('a');const area=getArea().replace(/[^a-z0-9]+/gi,'-').toLowerCase();a.download=`${area}-${bhk||pType}-footer.png`;a.href=c.toDataURL('image/png');a.click()};
+const c=document.getElementById('c'),ctx=c.getContext('2d');let pType='Villa',bhk='3BHK',photoImg=null;const $=id=>document.getElementById(id);
+$('area').onchange=()=>{$('otherArea').style.display=$('area').value==='Other'?'block':'none';draw()};['area','otherArea','price','h1','h2'].forEach(id=>$(id).addEventListener('input',draw));
+function pills(root,setter){document.querySelectorAll('#'+root+' .pill').forEach(b=>b.onclick=()=>{document.querySelectorAll('#'+root+' .pill').forEach(x=>x.classList.remove('active'));b.classList.add('active');setter(b.dataset.v);draw()})}pills('typePills',v=>pType=v);pills('bhkPills',v=>bhk=v);
+$('photo').onchange=e=>{const f=e.target.files[0];if(!f){photoImg=null;draw();return}const im=new Image();im.onload=()=>{photoImg=im;draw()};im.src=URL.createObjectURL(f)};$('generate').onclick=draw;$('download').onclick=()=>{draw();const a=document.createElement('a');a.download=`${getArea().replace(/[^a-z0-9]+/gi,'-').toLowerCase()}-${bhk||pType}-premium-footer.png`;a.href=c.toDataURL('image/png');a.click()};
 function getArea(){return $('area').value==='Other'?($('otherArea').value.trim()||'COIMBATORE'):$('area').value}
 function rr(x,y,w,h,r,fill,stroke,lw=2){ctx.beginPath();ctx.roundRect(x,y,w,h,r);if(fill){ctx.fillStyle=fill;ctx.fill()}if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw;ctx.stroke()}}
-function fit(txt,maxW,start,min=26){let s=start;ctx.font=`900 ${s}px Arial`;while(ctx.measureText(txt).width>maxW&&s>min){s-=2;ctx.font=`900 ${s}px Arial`}return s}
-function text(txt,x,y,size,color='#fff',align='center',weight=900){ctx.fillStyle=color;ctx.textAlign=align;ctx.textBaseline='middle';ctx.font=`${weight} ${size}px Arial`;ctx.fillText(txt,x,y)}
-function draw(){
-  ctx.clearRect(0,0,c.width,c.height);
-  const area=getArea().toUpperCase();const price=$('price').value.trim().toUpperCase()||'PRICE ON REQUEST';const h1=$('h1').value,h2=$('h2').value;
-  // disclaimer — fixed, secondary, no stars
-  text('AI CREATED VISUALS',492,102,28,'rgba(255,255,255,.62)','center',700);
-  ctx.strokeStyle='rgba(255,255,255,.18)';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(360,126);ctx.lineTo(625,126);ctx.stroke();
-  // main banner shell
-  rr(55,155,1940,355,62,'#071b37','#efc34c',10);
-  // left location pin
-  ctx.fillStyle='#e31c25';ctx.beginPath();ctx.arc(115,300,55,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.moveTo(75,330);ctx.lineTo(115,430);ctx.lineTo(155,330);ctx.closePath();ctx.fill();ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(115,300,23,0,Math.PI*2);ctx.fill();
-  // area panel
-  rr(185,205,585,245,38,'#0b2446','#d9a82d',4);rr(275,222,265,58,28,'#f2c64d',null);text('WE ARE IN',407,251,35,'#08172d');
-  let as=fit(area,535,64,34);text(area,478,350,as,'#fff');
-  // BHK/type block
-  rr(730,170,355,315,32,'#f3c64c','#efb923',5);
-  if(bhk){text(bhk,908,305,86,'#081b37');text(pType.toUpperCase(),908,414,50,'#081b37')} else {text(pType.toUpperCase(),908,330,65,'#081b37')}
-  // price block
-  rr(1060,190,450,275,34,'#d71920','#ffcc4c',5);rr(1155,160,260,70,25,'#f5c84c',null);text('JUST',1285,195,45,'#111');
-  let ps=fit(price,395,72,34);text(price,1285,335,ps,'#fff');
-  // right visual
-  rr(1495,172,475,295,32,'#10223c','#efc34c',4);ctx.save();ctx.beginPath();ctx.roundRect(1498,175,469,289,29);ctx.clip();
-  if(photoImg){const sw=photoImg.width,sh=photoImg.height,scale=Math.max(469/sw,289/sh),dw=sw*scale,dh=sh*scale;ctx.drawImage(photoImg,1498+(469-dw)/2,175+(289-dh)/2,dw,dh)}else{
-    const g=ctx.createLinearGradient(0,175,0,465);g.addColorStop(0,'#f8c77c');g.addColorStop(.55,'#dce7ee');g.addColorStop(1,'#263c51');ctx.fillStyle=g;ctx.fillRect(1498,175,469,289);
-    ctx.fillStyle='#f5f5f2';ctx.fillRect(1600,250,250,170);ctx.fillStyle='#26313b';ctx.fillRect(1580,240,300,25);ctx.fillStyle='#9b633e';ctx.fillRect(1625,285,70,110);ctx.fillStyle='#1a2530';ctx.fillRect(1730,285,80,60);ctx.fillStyle='#eef6fa';ctx.fillRect(1740,295,60,40);ctx.fillStyle='#15202c';ctx.fillRect(1570,408,320,18);
-  }ctx.restore();
-  // lower bar
-  rr(190,470,1545,125,48,'#f4c84f','#e2aa22',4);rr(1730,470,260,125,48,'#071b37','#e2aa22',4);
-  // house icon circle
-  ctx.fillStyle='#0a2448';ctx.beginPath();ctx.arc(265,532,42,0,Math.PI*2);ctx.fill();text('⌂',265,533,53,'#f3c94d');
-  let h1s=fit(h1,520,51,28),h2s=fit(h2,610,51,28);text(h1,610,533,h1s,'#08172d');
-  // road icon
-  ctx.strokeStyle='#0b2446';ctx.lineWidth=15;ctx.beginPath();ctx.moveTo(905,578);ctx.quadraticCurveTo(950,520,1010,485);ctx.stroke();ctx.setLineDash([16,16]);ctx.strokeStyle='#fff';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(930,578);ctx.quadraticCurveTo(965,525,1015,495);ctx.stroke();ctx.setLineDash([]);
-  text(h2,1325,533,h2s,'#08172d');text('››',1850,532,82,'#f4c84f');
-}
+function grad(x1,y1,x2,y2,stops){const g=ctx.createLinearGradient(x1,y1,x2,y2);stops.forEach(s=>g.addColorStop(s[0],s[1]));return g}
+function text(t,x,y,s,color='#fff',align='center',weight=900,shadow=true){ctx.save();ctx.textAlign=align;ctx.textBaseline='middle';ctx.font=`${weight} ${s}px Arial`;ctx.fillStyle=color;if(shadow){ctx.shadowColor='rgba(0,0,0,.55)';ctx.shadowBlur=8;ctx.shadowOffsetY=5}ctx.fillText(t,x,y);ctx.restore()}
+function fit(t,max,start,min=26){let s=start;ctx.font=`900 ${s}px Arial`;while(ctx.measureText(t).width>max&&s>min){s-=2;ctx.font=`900 ${s}px Arial`}return s}
+function gloss(x,y,w,h,a=.34){const g=grad(x,y,x,y+h,[[0,`rgba(255,255,255,${a})`],[.35,'rgba(255,255,255,.06)'],[1,'rgba(255,255,255,0)']]);ctx.save();ctx.globalCompositeOperation='screen';rr(x+8,y+6,w-16,h*.42,Math.min(24,h*.2),g,null);ctx.restore()}
+function shadowBox(x,y,w,h,r,fill,stroke='#d7a42a',lw=5){ctx.save();ctx.shadowColor='rgba(0,0,0,.55)';ctx.shadowBlur=20;ctx.shadowOffsetY=12;rr(x,y,w,h,r,fill,stroke,lw);ctx.restore();gloss(x,y,w,h,.25)}
+function goldStrokeLine(x1,y1,x2,y2){ctx.save();ctx.strokeStyle=grad(x1,y1,x2,y2,[[0,'#8e6110'],[.35,'#fff0a5'],[.6,'#f7c74a'],[1,'#7e4d09']]);ctx.lineWidth=7;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();ctx.restore()}
+function drawPin(x,y){ctx.save();ctx.shadowColor='rgba(0,0,0,.5)';ctx.shadowBlur=18;ctx.shadowOffsetY=8;ctx.fillStyle=grad(x-40,y-70,x+45,y+70,[[0,'#ff454d'],[.5,'#e3151f'],[1,'#a60811']]);ctx.beginPath();ctx.arc(x,y-28,53,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.moveTo(x-38,y+5);ctx.lineTo(x,y+90);ctx.lineTo(x+38,y+5);ctx.closePath();ctx.fill();ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(x,y-28,22,0,Math.PI*2);ctx.fill();ctx.restore()}
+function drawHouseBadge(x,y,w,h){const g=grad(x,y,x+w,y+h,[[0,'#fff09a'],[.32,'#ffd34d'],[.7,'#e4a91a'],[1,'#8e5b04']]);shadowBox(x,y,w,h,30,g,'#c88b11',6);ctx.save();ctx.fillStyle='#f4c84e';ctx.strokeStyle='#0a2141';ctx.lineWidth=10;ctx.beginPath();ctx.moveTo(x+28,y+55);ctx.lineTo(x+w/2,y-20);ctx.lineTo(x+w-28,y+55);ctx.lineTo(x+w-70,y+55);ctx.lineTo(x+w-70,y+95);ctx.lineTo(x+70,y+95);ctx.lineTo(x+70,y+55);ctx.closePath();ctx.fill();ctx.stroke();ctx.restore()}
+function drawFallbackVilla(x,y,w,h){const sky=grad(x,y,x,y+h,[[0,'#ffe0a0'],[.48,'#d9edf7'],[1,'#193047']]);ctx.fillStyle=sky;ctx.fillRect(x,y,w,h);ctx.fillStyle='#f4f3ef';ctx.fillRect(x+90,y+80,w*0.6,h*0.68);ctx.fillStyle='#3b2e27';ctx.fillRect(x+90,y+80,w*.14,h*.68);ctx.fillStyle='#242d36';ctx.fillRect(x+65,y+62,w*.68,24);ctx.fillStyle='#fff';ctx.fillRect(x+170,y+105,w*.35,12);ctx.fillRect(x+170,y+200,w*.35,12);ctx.fillStyle='#111a23';ctx.fillRect(x+210,y+125,95,68);ctx.fillStyle='#8ed0ee';ctx.fillRect(x+218,y+133,79,52);ctx.fillStyle='#8a5736';ctx.fillRect(x+130,y+210,72,100);ctx.fillStyle='#111820';ctx.fillRect(x+60,y+h-45,w*.72,20);ctx.fillStyle='#1f3d25';for(let i=0;i<7;i++){ctx.beginPath();ctx.arc(x+320+i*26,y+h-60-(i%2)*10,24,0,Math.PI*2);ctx.fill()}ctx.fillStyle='#21374f';ctx.beginPath();ctx.moveTo(x,y+h);ctx.lineTo(x+w,y+h);ctx.lineTo(x+w,y+h-65);ctx.lineTo(x+270,y+h-15);ctx.closePath();ctx.fill()}
+function draw(){ctx.clearRect(0,0,c.width,c.height);const area=getArea().toUpperCase(),price=($('price').value.trim()||'PRICE ON REQUEST').toUpperCase(),h1=$('h1').value,h2=$('h2').value;
+// main outer premium shell
+const shell=grad(40,120,1985,530,[[0,'#071a35'],[.5,'#0c2a51'],[1,'#04142d']]);ctx.save();ctx.shadowColor='rgba(0,0,0,.65)';ctx.shadowBlur=26;ctx.shadowOffsetY=15;rr(45,125,1955,415,62,shell,'#f0c24b',10);ctx.restore();goldStrokeLine(70,145,1965,145);goldStrokeLine(70,516,1965,516);
+// location pin
+ drawPin(110,310);
+// area panel
+const navy=grad(185,205,770,455,[[0,'#0b315d'],[.5,'#071b37'],[1,'#031125']]);shadowBox(180,195,590,260,40,navy,'#d9a52b',5);const cap=grad(280,220,540,275,[[0,'#fff09a'],[.5,'#f7c84a'],[1,'#c88a12']]);shadowBox(278,220,270,58,26,cap,'#f7d771',2);text('WE ARE IN',413,250,35,'#08172d','center',900,false);let as=fit(area,540,66,34);text(area,480,360,as,'#fff');ctx.fillStyle='rgba(244,197,74,.22)';ctx.fillRect(220,427,510,2);
+// bhk block
+const bg=grad(730,175,1090,490,[[0,'#fff3a0'],[.28,'#ffd75a'],[.72,'#e7ad24'],[1,'#9b6205']]);drawHouseBadge(730,175,360,315);if(bhk){text(bhk,910,315,88,'#071b37');text(pType.toUpperCase(),910,420,48,'#071b37')}else{text(pType.toUpperCase(),910,340,64,'#071b37')}
+// price panel
+const red=grad(1065,190,1510,465,[[0,'#ff3b39'],[.34,'#e3131c'],[.75,'#a60610'],[1,'#65020a']]);shadowBox(1060,190,455,275,34,red,'#ffcc4c',6);const just=grad(1155,157,1415,228,[[0,'#fff19a'],[.55,'#f1bd32'],[1,'#a96d0b']]);shadowBox(1155,158,260,70,26,just,'#efc34b',3);text('JUST',1285,194,46,'#111','center',900,false);let ps=fit(price,400,76,34);text(price,1285,337,ps,'#fff');ctx.save();ctx.globalAlpha=.28;ctx.fillStyle='#fff';ctx.beginPath();ctx.roundRect(1080,205,415,80,28);ctx.fill();ctx.restore();
+// visual frame
+shadowBox(1492,172,490,296,32,grad(1492,172,1982,468,[[0,'#fff1ca'],[1,'#1f3348']]),'#efc34b',5);ctx.save();ctx.beginPath();ctx.roundRect(1497,177,480,286,27);ctx.clip();if(photoImg){const sw=photoImg.width,sh=photoImg.height,s=Math.max(480/sw,286/sh),dw=sw*s,dh=sh*s;ctx.drawImage(photoImg,1497+(480-dw)/2,177+(286-dh)/2,dw,dh)}else drawFallbackVilla(1497,177,480,286);const vign=ctx.createLinearGradient(1497,177,1497,463);vign.addColorStop(0,'rgba(0,0,0,0)');vign.addColorStop(1,'rgba(0,0,0,.24)');ctx.fillStyle=vign;ctx.fillRect(1497,177,480,286);ctx.restore();
+// AI disclaimer inside image area
+ctx.save();ctx.fillStyle='rgba(3,15,30,.56)';rr(1660,190,275,38,16,'rgba(3,15,30,.56)',null);text('AI CREATED VISUALS',1797,209,23,'rgba(255,255,255,.78)','center',700,false);ctx.restore();
+// bottom strip
+const strip=grad(190,470,1740,598,[[0,'#fff19a'],[.25,'#f7cc57'],[.65,'#e6ad24'],[1,'#9d6508']]);shadowBox(185,470,1555,125,50,strip,'#e1a51e',5);shadowBox(1730,470,260,125,50,grad(1730,470,1990,595,[[0,'#12385f'],[1,'#031125']]),'#d9a52b',4);
+// lower icon + divider + highlights
+ctx.fillStyle='#09254a';ctx.beginPath();ctx.arc(265,532,42,0,Math.PI*2);ctx.fill();text('⌂',265,533,52,'#f7ca4b','center',900,false);ctx.strokeStyle='rgba(7,27,55,.5)';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(365,495);ctx.lineTo(365,570);ctx.stroke();let h1s=fit(h1,500,51,28);text(h1,600,533,h1s,'#07182f','center',900,false);
+// road icon
+ctx.strokeStyle='#0c2c53';ctx.lineWidth=18;ctx.beginPath();ctx.moveTo(900,580);ctx.quadraticCurveTo(950,520,1010,486);ctx.stroke();ctx.setLineDash([14,14]);ctx.strokeStyle='#fff';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(925,579);ctx.quadraticCurveTo(960,525,1015,493);ctx.stroke();ctx.setLineDash([]);ctx.strokeStyle='rgba(7,27,55,.5)';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(1028,495);ctx.lineTo(1028,570);ctx.stroke();let h2s=fit(h2,620,51,28);text(h2,1325,533,h2s,'#07182f','center',900,false);text('»',1862,533,88,'#f7c84b','center',900,false);
+// tiny edge highlights
+ctx.save();ctx.globalAlpha=.7;ctx.fillStyle='#fff8c9';ctx.fillRect(92,137,300,3);ctx.fillRect(1090,482,355,3);ctx.restore();}
 draw();
 </script>
 </body>
