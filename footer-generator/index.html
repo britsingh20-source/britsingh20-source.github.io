@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Coimbatore Veedu Footer Generator</title>
+<style>
+  :root{--navy:#071b37;--navy2:#0e2c55;--gold:#f5c449;--gold2:#ffd96d;--red:#d71920;--bg:#07101f;--card:#0c1729;--text:#fff;--muted:#9fb0c9;}
+  *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#050b15,#0a1425);color:var(--text)}
+  .wrap{max-width:980px;margin:auto;padding:18px}.brand{font-weight:900;font-size:26px;letter-spacing:.4px}.sub{color:var(--muted);margin-top:6px;line-height:1.45}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.card{background:rgba(12,23,41,.95);border:1px solid #23344e;border-radius:18px;padding:16px;box-shadow:0 16px 40px rgba(0,0,0,.28)}
+  label{font-size:12px;font-weight:800;color:#cbd6e8;display:block;margin:0 0 7px;text-transform:uppercase;letter-spacing:.8px} select,input{width:100%;background:#091426;color:#fff;border:1px solid #32445f;border-radius:12px;padding:13px;font-size:16px;outline:none} input[type=file]{padding:10px;font-size:14px}
+  .row{display:flex;gap:8px;flex-wrap:wrap}.pill{border:1px solid #41536f;background:#0a172b;color:#dfe8f7;border-radius:999px;padding:10px 14px;font-weight:800;cursor:pointer}.pill.active{background:linear-gradient(180deg,#ffd76a,#e6ae2b);color:#091426;border-color:#ffd76a}
+  .switch{display:flex;align-items:center;gap:10px;background:#091426;border:1px solid #32445f;border-radius:12px;padding:12px}.dot{width:44px;height:24px;border-radius:999px;background:#1d7f4f;position:relative;flex:0 0 auto}.dot:after{content:"";width:18px;height:18px;border-radius:50%;background:#fff;position:absolute;top:3px;right:3px}.locked{font-size:12px;color:#8ea2bd}
+  .full{grid-column:1/-1}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border:0;border-radius:13px;padding:14px 18px;font-weight:900;font-size:15px;cursor:pointer}.primary{background:linear-gradient(180deg,#ffd96d,#eab635);color:#07152c}.secondary{background:#10223e;color:white;border:1px solid #365077}.preview{margin-top:18px;background:#04070d;border:1px solid #263650;border-radius:18px;padding:12px;overflow:auto}.preview canvas{display:block;width:100%;min-width:760px;height:auto;border-radius:12px}
+  .hint{font-size:12px;color:#91a4bf;margin-top:8px}.small{font-size:12px;color:#a8b9cf}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.brand{font-size:22px}.wrap{padding:12px}.card{padding:14px}.preview{margin-left:-4px;margin-right:-4px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">Coimbatore Veedu — Property Footer Generator</div>
+  <div class="sub">Select the property details. The layout, colours and “AI CREATED VISUALS” disclaimer stay fixed. Export is a transparent PNG.</div>
+
+  <div class="grid">
+    <div class="card">
+      <label>Area</label>
+      <select id="area">
+        <option>Shantimedu</option><option>Kalapatti</option><option>Vadavalli</option><option>Saravanampatti</option><option>Sulur</option><option>Karamadai</option><option>Kovilpalayam</option><option>Thudiyalur</option><option>Idigarai</option><option>Malumichampatti</option><option>Periyanaickenpalayam</option><option>Annur</option><option>Mettupalayam Road</option><option>Somayampalayam</option><option>Bommanampalayam</option><option>Pannimadai</option><option>Veerappandi</option><option>Pattanam</option><option>Papampatti Pirivu</option><option>Nadupalayam</option><option>Other</option>
+      </select>
+      <input id="otherArea" style="display:none;margin-top:8px" placeholder="Enter new area once" />
+    </div>
+
+    <div class="card">
+      <label>Property Type</label>
+      <div class="row" id="typePills"><button class="pill active" data-v="Villa">Villa</button><button class="pill" data-v="Plot">Plot</button><button class="pill" data-v="House">House</button><button class="pill" data-v="Apartment">Apartment</button></div>
+    </div>
+
+    <div class="card">
+      <label>BHK</label>
+      <div class="row" id="bhkPills"><button class="pill" data-v="1BHK">1BHK</button><button class="pill" data-v="2BHK">2BHK</button><button class="pill active" data-v="3BHK">3BHK</button><button class="pill" data-v="4BHK">4BHK</button><button class="pill" data-v="">N/A</button></div>
+    </div>
+
+    <div class="card">
+      <label>Price</label>
+      <input id="price" value="₹54 LAKH ONLY" placeholder="Example: ₹54 LAKH ONLY" />
+      <div class="hint">Type only the price. The red price panel is automatic.</div>
+    </div>
+
+    <div class="card">
+      <label>Highlight 1</label>
+      <select id="h1"><option>SPACIOUS VILLA</option><option>GATED COMMUNITY</option><option>READY TO MOVE</option><option>DTCP APPROVED</option><option>MAIN ROAD PROJECT</option><option>PREMIUM LOCATION</option><option>CORNER SITE</option><option>BANK LOAN AVAILABLE</option></select>
+    </div>
+
+    <div class="card">
+      <label>Highlight 2</label>
+      <select id="h2"><option>ONROAD PROJECT</option><option>NEAR AIRPORT</option><option>READY TO MOVE</option><option>DTCP APPROVED</option><option>GATED COMMUNITY</option><option>MAIN ROAD PROJECT</option><option>NEAR SCHOOL</option><option>NEAR IT PARK</option></select>
+    </div>
+
+    <div class="card">
+      <label>Property / Villa Visual (optional)</label>
+      <input id="photo" type="file" accept="image/*" />
+      <div class="hint">Upload the property image or AI villa visual. It will appear on the right side of the footer.</div>
+    </div>
+
+    <div class="card">
+      <label>AI Disclaimer</label>
+      <div class="switch"><div class="dot"></div><div><b>AI CREATED VISUALS</b><div class="locked">Always ON • fixed smaller size • fixed position</div></div></div>
+    </div>
+
+    <div class="card full">
+      <div class="actions"><button class="btn primary" id="generate">Generate / Refresh Preview</button><button class="btn secondary" id="download">Download Transparent PNG</button></div>
+      <div class="small" style="margin-top:10px">Master size: 2048 × 640 px. AI disclaimer is fixed around x 24%, y 16% and intentionally secondary to location/BHK/price.</div>
+    </div>
+  </div>
+
+  <div class="preview"><canvas id="c" width="2048" height="640"></canvas></div>
+</div>
+<script>
+const c=document.getElementById('c'),ctx=c.getContext('2d');let pType='Villa',bhk='3BHK',photoImg=null;
+const $=id=>document.getElementById(id);
+$('area').onchange=()=>{$('otherArea').style.display=$('area').value==='Other'?'block':'none';draw()};
+['area','otherArea','price','h1','h2'].forEach(id=>$(id).addEventListener('input',draw));
+function pills(root, setter){document.querySelectorAll('#'+root+' .pill').forEach(b=>b.onclick=()=>{document.querySelectorAll('#'+root+' .pill').forEach(x=>x.classList.remove('active'));b.classList.add('active');setter(b.dataset.v);draw()})}
+pills('typePills',v=>pType=v);pills('bhkPills',v=>bhk=v);
+$('photo').onchange=e=>{const f=e.target.files[0];if(!f){photoImg=null;draw();return}const im=new Image();im.onload=()=>{photoImg=im;draw()};im.src=URL.createObjectURL(f)};
+$('generate').onclick=draw;
+$('download').onclick=()=>{draw();const a=document.createElement('a');const area=getArea().replace(/[^a-z0-9]+/gi,'-').toLowerCase();a.download=`${area}-${bhk||pType}-footer.png`;a.href=c.toDataURL('image/png');a.click()};
+function getArea(){return $('area').value==='Other'?($('otherArea').value.trim()||'COIMBATORE'):$('area').value}
+function rr(x,y,w,h,r,fill,stroke,lw=2){ctx.beginPath();ctx.roundRect(x,y,w,h,r);if(fill){ctx.fillStyle=fill;ctx.fill()}if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw;ctx.stroke()}}
+function fit(txt,maxW,start,min=26){let s=start;ctx.font=`900 ${s}px Arial`;while(ctx.measureText(txt).width>maxW&&s>min){s-=2;ctx.font=`900 ${s}px Arial`}return s}
+function text(txt,x,y,size,color='#fff',align='center',weight=900){ctx.fillStyle=color;ctx.textAlign=align;ctx.textBaseline='middle';ctx.font=`${weight} ${size}px Arial`;ctx.fillText(txt,x,y)}
+function draw(){
+  ctx.clearRect(0,0,c.width,c.height);
+  const area=getArea().toUpperCase();const price=$('price').value.trim().toUpperCase()||'PRICE ON REQUEST';const h1=$('h1').value,h2=$('h2').value;
+  // disclaimer — fixed, secondary, no stars
+  text('AI CREATED VISUALS',492,102,28,'rgba(255,255,255,.62)','center',700);
+  ctx.strokeStyle='rgba(255,255,255,.18)';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(360,126);ctx.lineTo(625,126);ctx.stroke();
+  // main banner shell
+  rr(55,155,1940,355,62,'#071b37','#efc34c',10);
+  // left location pin
+  ctx.fillStyle='#e31c25';ctx.beginPath();ctx.arc(115,300,55,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.moveTo(75,330);ctx.lineTo(115,430);ctx.lineTo(155,330);ctx.closePath();ctx.fill();ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(115,300,23,0,Math.PI*2);ctx.fill();
+  // area panel
+  rr(185,205,585,245,38,'#0b2446','#d9a82d',4);rr(275,222,265,58,28,'#f2c64d',null);text('WE ARE IN',407,251,35,'#08172d');
+  let as=fit(area,535,64,34);text(area,478,350,as,'#fff');
+  // BHK/type block
+  rr(730,170,355,315,32,'#f3c64c','#efb923',5);
+  if(bhk){text(bhk,908,305,86,'#081b37');text(pType.toUpperCase(),908,414,50,'#081b37')} else {text(pType.toUpperCase(),908,330,65,'#081b37')}
+  // price block
+  rr(1060,190,450,275,34,'#d71920','#ffcc4c',5);rr(1155,160,260,70,25,'#f5c84c',null);text('JUST',1285,195,45,'#111');
+  let ps=fit(price,395,72,34);text(price,1285,335,ps,'#fff');
+  // right visual
+  rr(1495,172,475,295,32,'#10223c','#efc34c',4);ctx.save();ctx.beginPath();ctx.roundRect(1498,175,469,289,29);ctx.clip();
+  if(photoImg){const sw=photoImg.width,sh=photoImg.height,scale=Math.max(469/sw,289/sh),dw=sw*scale,dh=sh*scale;ctx.drawImage(photoImg,1498+(469-dw)/2,175+(289-dh)/2,dw,dh)}else{
+    const g=ctx.createLinearGradient(0,175,0,465);g.addColorStop(0,'#f8c77c');g.addColorStop(.55,'#dce7ee');g.addColorStop(1,'#263c51');ctx.fillStyle=g;ctx.fillRect(1498,175,469,289);
+    ctx.fillStyle='#f5f5f2';ctx.fillRect(1600,250,250,170);ctx.fillStyle='#26313b';ctx.fillRect(1580,240,300,25);ctx.fillStyle='#9b633e';ctx.fillRect(1625,285,70,110);ctx.fillStyle='#1a2530';ctx.fillRect(1730,285,80,60);ctx.fillStyle='#eef6fa';ctx.fillRect(1740,295,60,40);ctx.fillStyle='#15202c';ctx.fillRect(1570,408,320,18);
+  }ctx.restore();
+  // lower bar
+  rr(190,470,1545,125,48,'#f4c84f','#e2aa22',4);rr(1730,470,260,125,48,'#071b37','#e2aa22',4);
+  // house icon circle
+  ctx.fillStyle='#0a2448';ctx.beginPath();ctx.arc(265,532,42,0,Math.PI*2);ctx.fill();text('⌂',265,533,53,'#f3c94d');
+  let h1s=fit(h1,520,51,28),h2s=fit(h2,610,51,28);text(h1,610,533,h1s,'#08172d');
+  // road icon
+  ctx.strokeStyle='#0b2446';ctx.lineWidth=15;ctx.beginPath();ctx.moveTo(905,578);ctx.quadraticCurveTo(950,520,1010,485);ctx.stroke();ctx.setLineDash([16,16]);ctx.strokeStyle='#fff';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(930,578);ctx.quadraticCurveTo(965,525,1015,495);ctx.stroke();ctx.setLineDash([]);
+  text(h2,1325,533,h2s,'#08172d');text('››',1850,532,82,'#f4c84f');
+}
+draw();
+</script>
+</body>
+</html>
